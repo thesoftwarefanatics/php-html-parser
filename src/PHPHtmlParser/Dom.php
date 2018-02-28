@@ -137,7 +137,7 @@ class Dom
     {
         AbstractNode::resetCount();
         // check if it's a file
-        if (strpos($str, "\n") === false && is_file($str)) {
+        if (strpos($str, "\n") === false && strlen($str) <= PHP_MAXPATHLEN && is_file($str)) {
             return $this->loadFromFile($str, $options);
         }
         // check if it's a url
