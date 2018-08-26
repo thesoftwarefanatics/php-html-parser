@@ -1,5 +1,5 @@
 {
-    "name": "thesoftwarefanatics/php-html-parser",
+    "name": "gfd6th/php-html-parser",
     "type": "library",
     "description": "An HTML DOM parser. It allows you to manipulate HTML. Find tags on an HTML page with selectors just like jQuery.",
     "keywords": ["html", "dom", "parser"],
