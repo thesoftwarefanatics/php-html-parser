@@ -197,4 +197,9 @@ class HtmlNode extends InnerNode
     {
         return $this->getChildren();
     }
+    
+    public function setOuterHtml($text)
+    {
+      $this->outerHtml = $text;
+    }
 }
