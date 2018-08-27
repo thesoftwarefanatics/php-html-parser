@@ -457,4 +457,12 @@ class NodeHtmlTest extends TestCase {
         $node = new HtmlNode($a);
         $node->ancestorByTag('div');
     }
+    
+    public function testSetOuterHtml(){
+        $old = new HtmlNode('<span>foo</span>');
+
+        $old->setOuterHtml('<a>foo</a>');
+
+        $this->assertEquals((string)$old, '<a>foo</a>');
+    }
 }
