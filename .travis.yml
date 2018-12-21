@@ -1,15 +1,14 @@
 language: php
 dist: trusty
-sudo: false
 
 php:
   - 7.1
   - 7.2
+  - 7.3
   - nightly
 
 install:
-  - composer self-update
-  - composer install --dev --no-interaction
+  - composer install --dev
 
 allowed_failures:
   - nightly
@@ -19,3 +18,10 @@ script:
 
 after_script:
   - php vendor/bin/coveralls
+
+jobs:
+  include:
+    # Test against the lowest set of dependencies
+    - php: 7.1
+      install:
+        - composer update --dev --prefer-dist --prefer-lowest
