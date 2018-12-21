@@ -142,14 +142,62 @@ class NodeParentTest extends TestCase {
     public function testReplaceChild()
     {
         $parent = new Node;
-        $child  = new Node;
+        $child1 = new Node;
         $child2 = new Node;
         $child3 = new Node;
-        $parent->addChild($child);
+        $child4 = new Node;
+        $parent->addChild($child1);
         $parent->addChild($child2);
-        $parent->replaceChild($child->id(), $child3);
+        $parent->addChild($child3);
 
-        $this->assertFalse($parent->isChild($child->id()));
+        self::assertAttributeEquals(
+            [
+                $child1->id() => [
+                    'next' => $child2->id(),
+                    'prev' => null,
+                    'node' => $child1,
+                ],
+                $child2->id() => [
+                    'next' => $child3->id(),
+                    'prev' => $child1->id(),
+                    'node' => $child2,
+                ],
+                $child3->id() => [
+                    'next' => null,
+                    'prev' => $child2->id(),
+                    'node' => $child3,
+                ],
+            ],
+            'children',
+            $parent
+        );
+
+        $parent->replaceChild($child2->id(), $child4);
+
+        $this->assertFalse($parent->isChild($child2->id()));
+        $this->assertTrue($parent->isChild($child4->id()));
+
+        self::assertAttributeEquals(
+            [
+                $child1->id() => [
+                    'next' => $child4->id(),
+                    'prev' => null,
+                    'node' => $child1,
+                ],
+                $child3->id() => [
+                    'next' => null,
+                    'prev' => $child4->id(),
+                    'node' => $child3,
+                ],
+                $child4->id() => [
+                    'next' => $child3->id(),
+                    'prev' => $child1->id(),
+                    'node' => $child4,
+                ],
+            ],
+            'children',
+            $parent
+        );
     }
 
     public function testSetParentDescendantException()
