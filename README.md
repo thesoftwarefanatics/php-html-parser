@@ -1,7 +1,7 @@
 PHP Html Parser
 ===============
 
-Note: this is a fork of [paquettg/php-html-parser](https://github.com/paquettg/php-html-parser). The project is in passive maintenance only. Pull requests are accepted. If you are willing to maintain this package, please create an issue and let us know.
+Note: this is a fork of [paquettg/php-html-parser](https://github.com/paquettg/php-html-parser) that was used to provide compatibility with PHP 7.2 in a time when the original project was not supported. Since then, the original author has picked up work on the package again so you should be using that instead.
 
 [![Build Status](https://travis-ci.org/thesoftwarefanatics/php-html-parser.png)](https://travis-ci.org/thesoftwarefanatics/php-html-parser)
 [![Coverage Status](https://coveralls.io/repos/thesoftwarefanatics/php-html-parser/badge.png)](https://coveralls.io/r/thesoftwarefanatics/php-html-parser)
